@@ -1,7 +1,7 @@
 export const SKILLS = [
     {
         title: "Frontend Development",
-        icon: "./assets/images/frontend.png",
+        icon: "./assets/images/Frontend.png",
         skills: [
             { skill: "ReactJS", percentage: "60%" },
             { skill: "Flutter", percentage: "70%" },
@@ -12,7 +12,7 @@ export const SKILLS = [
     },
     {
         title: "Backend Development",
-        icon: "./assets/images/backend.png",
+        icon: "./assets/images/Backend (2).png",
         skills: [
             { skill: ".NET Core", percentage: "60%" },
             { skill: "Node.js", percentage: "50%" },
@@ -25,7 +25,7 @@ export const SKILLS = [
     },
     {
         title: "Databases & Cloud",
-        icon: "./assets/images/database.png",
+        icon: "./assets/images/Database (2).png",
         skills: [
             { skill: "MSSQL", percentage: "80%" },
             { skill: "MySQL", percentage: "80%" },
@@ -48,7 +48,7 @@ export const SKILLS = [
     },
     {
         title: "Software & Applications",
-        icon: "./assets/images/software.png",
+        icon: "./assets/images/applications.png",
         skills: [
             { skill: "Visual Studio Code", percentage: "80%" },
             { skill: "Android Studio", percentage: "80%" },
@@ -60,7 +60,7 @@ export const SKILLS = [
     },
     {
         title: "Operating Systems",
-        icon: "./assets/images/os.png",
+        icon: "./assets/images/operating-system.png",
         skills: [
             { skill: "Windows", percentage: "80%" },
             { skill: "Linux", percentage: "50%" },

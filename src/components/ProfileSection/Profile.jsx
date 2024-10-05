@@ -20,16 +20,16 @@ const Profile = () =>
 
                 <div>
                     <div className='tech-icon'>
-                        <img src='./assets/images/react.png' alt="React" />
+                        <img src='./assets/images/React.png' alt="React" />
                     </div>
                     <div className='tech-icon'>
                         <img src="./assets/images/HTML.png" alt="HTML" />
                     </div>
                     <div className='tech-icon'>
-                        <img src="./assets/images/css.png" alt="CSS" />
+                        <img src="./assets/images/CSS.png" alt="CSS" />
                     </div>
                     <div className='tech-icon'>
-                        <img src="./assets/images/JS.jpg" alt="JavaScript" />
+                        <img src="./assets/images/JS.png" alt="JavaScript" />
                     </div>
                 </div>
 

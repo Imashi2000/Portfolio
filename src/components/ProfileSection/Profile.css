@@ -84,7 +84,7 @@
 }
 
 .tech-icon img {
-    width: 100%;
+    width: 75%;
     /*technology icon size*/
     height: auto;
     transition: all 0.3s ease;
