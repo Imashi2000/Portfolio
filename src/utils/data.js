@@ -73,11 +73,9 @@ export const PROJECT = [
         title: "My Sri Lanka - Final year project",
         description: "Developed a tourism mobile application for tourists visiting Sri Lanka, enabling them to select travel packages tailored to their needs. Implemented an admin dashboard to automate client work, increasing efficiency and reducing manual errors.",
         contribution: [
-            {
-                work: "Developed and implemented front-end components in Flutter, including the sign-up page, question pages, home page, day trip package page, A-Z Sri Lanka page, and festival page.",
-                work: "Integrated front-end components with the backend, enhancing app functionality and user experience.",
-                work: "Designed and developed festival page and A-Z Sri Lanka CRUD operations (frontend and backend) for the admin dashboard.",
-            }
+            "Developed and implemented front-end components in Flutter, including the sign-up page, question pages, home page, day trip package page, A-Z Sri Lanka page, and festival page.",
+            "Integrated front-end components with the backend, enhancing app functionality and user experience.",
+            "Designed and developed festival page and A-Z Sri Lanka CRUD operations (frontend and backend) for the admin dashboard."
         ],
         technologies: "Technologies used: Flutter, React JS, MongoDB, Express JS, NodeJS."
     },
@@ -86,10 +84,8 @@ export const PROJECT = [
         title: "Hospital Appointment System",
         description: "Developed a hospital appointment system that facilitates registration for doctors, patients, and administrators using C# and SQL Server.",
         contribution: [
-            {
-                work: "Designed and implemented patient registration management, including full CRUD operations for administrators.",
-                work: "Developed patient registration forms to streamline patient onboarding.",
-            }
+            "Designed and implemented patient registration management, including full CRUD operations for administrators.",
+            "Developed patient registration forms to streamline patient onboarding."
         ],
         technologies: "Technologies used: C#, MSSQL."
     },
@@ -98,9 +94,7 @@ export const PROJECT = [
         title: "Itinerary Planner Desktop Application",
         description: "Implemented trip planning functionality in a desktop application, allowing users to create, view, and manage their travel itineraries.",
         contribution: [
-            {
-                work: "Designed and developed login and registration pages.",
-            }
+            "Designed and developed login and registration pages."
         ],
         technologies: "Technologies used: Java, MySQL, XAMPP."
     },
@@ -109,9 +103,7 @@ export const PROJECT = [
         title: "Frontend Website for Shanthi Children's Society",
         description: "Developed a prototype website for a local non-profit organization, Shanthi Children's Society, based on information gathered through interviews with stakeholders.",
         contribution: [
-            {
-                work: "Developed the membership page, including login and registration forms using JavaScript for secure user authentication.",
-            }
+            "Developed the membership page, including login and registration forms using JavaScript for secure user authentication."
         ],
         technologies: "Technologies used: HTML, CSS, JavaScript."
     }
