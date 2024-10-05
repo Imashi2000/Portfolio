@@ -19,6 +19,7 @@
     width: 25%;
     position: relative;
     align-items: center;
+    border-radius: 10%;
 }
 
 .work-content h5 {

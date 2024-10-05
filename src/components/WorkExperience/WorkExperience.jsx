@@ -8,7 +8,7 @@ export const WorkExperience = () =>
         <section className="work-box">
             <h5 className="work-title">Work Experience</h5>
             <div className="work-container">
-                <img src="./assets/images/briefcase (1).png" alt="" />
+                <img src="./assets/images/agrolink.png" alt="" />
 
                 <ul className="work-content">
                     <h5>Creative Software</h5>
