@@ -95,6 +95,11 @@
     transform: translateY(-0.5rem);
 }
 
+#PROFILE {
+    padding-top: 100px;
+    margin-top: -80px;
+}
+
 @media (max-width: 1025px) {
     .profile-content h2 {
         font-size: 3rem;

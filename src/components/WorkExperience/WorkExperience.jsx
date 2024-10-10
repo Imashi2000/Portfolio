@@ -5,7 +5,7 @@ export const WorkExperience = () =>
 {
     return (
 
-        <section className="work-box">
+        <section className="work-box" id="WORK">
             <h5 className="work-title">Work Experience</h5>
             <div className="work-container">
                 <img src="./assets/images/agrolink.png" alt="" />

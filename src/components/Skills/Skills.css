@@ -49,6 +49,11 @@
     flex: 1;
 }
 
+#SKILLS {
+    padding-top: 100px;
+    margin-top: -80px;
+}
+
 @media (max-width: 1025px) {
     .skills {
         padding-left: 1rem;
