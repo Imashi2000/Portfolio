@@ -3,6 +3,8 @@ import './Projects.css';
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { PROJECT } from "../../utils/data";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Projects = () =>
 {
@@ -12,14 +14,14 @@ const Projects = () =>
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 },
             },
@@ -44,7 +46,7 @@ const Projects = () =>
     };
 
     return (
-        <section className="project-container">
+        <section className="project-container" id="PROJECT">
             <h5>Projects</h5>
 
             <div className="project-content">

@@ -16,13 +16,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0.5rem;
+    border-radius: 10rem;
     background: #3d3072;
     margin-bottom: 0.8rem;
 }
 
+.contact-details-card a {
+    color: white;
+}
+
+.contact-details-card a:hover {
+    color: #b0a6d3;
+}
+
 .icon img {
-    width: 1.5rem;
+    width: 3rem;
     height: auto;
     object-fit: contain;
     justify-content: left;

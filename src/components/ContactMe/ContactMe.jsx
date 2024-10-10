@@ -6,22 +6,25 @@ import ContactForm from "./ContactForm/ContactForm";
 const ContactMe = () =>
 {
     return (
-        <section className="contact-container">
+        <section className="contact-container" id="CONTACT">
             <h5>Contact Me</h5>
 
             <div className="contact-content">
                 <div style={{ flex: 1 }}>
                     <ContactInfoCard
-                        iconUrl=""
-                        text="imashi.samarawickrama@outlook.com"
+                        iconUrl="./assets/images/outlook.png"
+                        url="imashi.samarawickrama@outlook.com"
+                        target_text="_blank"
                     />
                     <ContactInfoCard
-                        iconUrl=""
-                        text="https://github.com/Imashi2000"
+                        iconUrl="./assets/images/github.png"
+                        url="https://github.com/Imashi2000"
+                        target_text="_blank"
                     />
                     <ContactInfoCard
-                        iconUrl=""
-                        text="www.linkedin.com/in/imashi-samarawickrama"
+                        iconUrl="./assets/images/linkedin.png"
+                        url="https://www.linkedin.com/in/imashi-samarawickrama"
+                        target_text="_blank"
                     />
                 </div>
 
