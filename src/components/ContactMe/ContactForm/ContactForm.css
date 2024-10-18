@@ -43,6 +43,47 @@ form button:hover {
     background: transparent;
 }
 
+.snackbar {
+    visibility: visible;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
+    opacity: 0.9;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+    }
+
+    10% {
+        opacity: 0.9;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    90% {
+        opacity: 0.9;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+    }
+}
+
 @media (max-width: 450px) {
     .name-container {
         flex-direction: column;
