@@ -12,7 +12,7 @@ export const WorkExperience = () =>
 
                 <ul className="work-content">
                     <h5>Creative Software</h5>
-                    <h5>Software Enginerr Intern</h5>
+                    <h5>Software Engineer Intern</h5>
                     <li className="work-items">
                         <div>
                             <h6>Mini Project</h6>

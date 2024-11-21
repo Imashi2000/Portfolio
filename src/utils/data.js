@@ -77,7 +77,8 @@ export const PROJECT = [
             "Integrated front-end components with the backend, enhancing app functionality and user experience.",
             "Designed and developed festival page and A-Z Sri Lanka CRUD operations (frontend and backend) for the admin dashboard."
         ],
-        technologies: "Technologies used: Flutter, React JS, MongoDB, Express JS, NodeJS."
+        technologies: "Technologies used: Flutter, React JS, MongoDB, Express JS, NodeJS.",
+        images: ["./assets/images/1.PNG", "./assets/images/2.PNG", "./assets/images/3.PNG", "./assets/images/4.PNG"]
     },
 
     {
@@ -87,7 +88,8 @@ export const PROJECT = [
             "Designed and implemented patient registration management, including full CRUD operations for administrators.",
             "Developed patient registration forms to streamline patient onboarding."
         ],
-        technologies: "Technologies used: C#, MSSQL."
+        technologies: "Technologies used: C#, MSSQL.",
+        images: ["https://www.rd.com/wp-content/uploads/2019/11/mangabey-e1574795521527.jpg", "https://www.rd.com/wp-content/uploads/2019/11/mangabey-e1574795521527.jpg"]
     },
 
     {
@@ -96,7 +98,8 @@ export const PROJECT = [
         contribution: [
             "Designed and developed login and registration pages."
         ],
-        technologies: "Technologies used: Java, MySQL, XAMPP."
+        technologies: "Technologies used: Java, MySQL, XAMPP.",
+        images: ["https://www.rd.com/wp-content/uploads/2019/11/mangabey-e1574795521527.jpg", "https://www.rd.com/wp-content/uploads/2019/11/mangabey-e1574795521527.jpg"]
     },
 
     {
@@ -105,6 +108,7 @@ export const PROJECT = [
         contribution: [
             "Developed the membership page, including login and registration forms using JavaScript for secure user authentication."
         ],
-        technologies: "Technologies used: HTML, CSS, JavaScript."
+        technologies: "Technologies used: HTML, CSS, JavaScript.",
+        images: ["https://www.rd.com/wp-content/uploads/2019/11/mangabey-e1574795521527.jpg", "https://www.rd.com/wp-content/uploads/2019/11/mangabey-e1574795521527.jpg"]
     }
 ];
