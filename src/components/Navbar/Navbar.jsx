@@ -1,75 +1,147 @@
-import React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 import MobileNav from './MobileNav/MobileNav';
-import { useState } from 'react';
 import HireMe from '../HireMe/HireMe';
+import { NAV_LINKS } from '../../utils/data';
 
 const Navbar = () =>
 {
     const [openMenu, setOpenMenu] = useState(false);
     const [isHireMeOpen, setIsHireMeOpen] = useState(false);
+    const [activeId, setActiveId] = useState('');
+    const progressBar = useRef();
 
     const toggleMenu = () =>
     {
         setOpenMenu(!openMenu);
-        if (isHireMeOpen) {
-            setIsHireMeOpen(false); // Close modal if it’s open
-        }
     };
 
-    const toggleModal = () =>
+    const openHireMe = () =>
     {
-        setIsHireMeOpen(!isHireMeOpen);
+        setOpenMenu(false);
+        setIsHireMeOpen(true);
     };
+
+    // Stop the page behind the menu or popup from scrolling
+    useEffect(() =>
+    {
+        document.body.style.overflow = openMenu || isHireMeOpen ? 'hidden' : '';
+
+        return () =>
+        {
+            document.body.style.overflow = '';
+        };
+    }, [openMenu, isHireMeOpen]);
+
+    useEffect(() =>
+    {
+        const closeOnEscape = (e) =>
+        {
+            if (e.key === 'Escape') {
+                setOpenMenu(false);
+                setIsHireMeOpen(false);
+            }
+        };
+
+        // The mobile menu must not stay open (and lock scrolling) after resizing to desktop
+        const desktop = window.matchMedia('(min-width: 1101px)');
+        const closeOnDesktop = (e) =>
+        {
+            if (e.matches) setOpenMenu(false);
+        };
+
+        window.addEventListener('keydown', closeOnEscape);
+        desktop.addEventListener('change', closeOnDesktop);
+
+        return () =>
+        {
+            window.removeEventListener('keydown', closeOnEscape);
+            desktop.removeEventListener('change', closeOnDesktop);
+        };
+    }, []);
+
+    // Highlight the link for the section in the middle of the screen
+    useEffect(() =>
+    {
+        const observer = new IntersectionObserver((entries) =>
+        {
+            entries.forEach((entry) =>
+            {
+                if (entry.isIntersecting) setActiveId(entry.target.id);
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+
+        ['PROFILE', ...NAV_LINKS.map((link) => link.id)].forEach((id) =>
+        {
+            observer.observe(document.getElementById(id));
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() =>
+    {
+        const updateProgress = () =>
+        {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.current.style.transform = `scaleX(${scrollable > 0 ? window.scrollY / scrollable : 0})`;
+        };
+
+        updateProgress();
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+
+        return () =>
+        {
+            window.removeEventListener('scroll', updateProgress);
+            window.removeEventListener('resize', updateProgress);
+        };
+    }, []);
 
     return (
         <>
-            <MobileNav 
-                isOpen={openMenu} 
-                toggleMenu={toggleMenu} 
-                toggleModal={toggleModal} 
+            <MobileNav
+                isOpen={openMenu}
+                toggleMenu={toggleMenu}
+                openHireMe={openHireMe}
+                activeId={activeId}
             />
 
-            <nav className='nav-wrapper'>
+            <nav className='nav-wrapper' aria-label='Main'>
                 <div className='nav-content'>
-                    <div className='moto-text'>
-                        Crafting Code, Building Futures
-                    </div>
+                    <a className='nav-brand' href='#PROFILE'>
+                        Imashi Samarawickrama
+                    </a>
 
                     <ul>
+                        {NAV_LINKS.map((link) => (
+                            <li key={link.id}>
+                                <a className={`menu-item ${activeId === link.id ? 'active' : ''}`} href={`#${link.id}`}>
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
                         <li>
-                            <a className='menu-item' href='#PROFILE' >Home</a>
+                            <button className='contact-btn' onClick={openHireMe}>
+                                Hire Me
+                            </button>
                         </li>
-                        <li>
-                            <a className='menu-item' href='#SKILLS'>Skills</a>
-                        </li>
-                        <li>
-                            <a className='menu-item' href='#WORK'>Work Experience</a>
-                        </li>
-                        <li>
-                            <a className='menu-item' href='#PROJECT'>Project</a>
-                        </li>
-                        <li>
-                            <a className='menu-item' href="#CONTACT">Contact Me</a>
-                        </li>
-
-                        <button className="contact-btn" onClick={toggleModal}>
-                            Hire Me
-                        </button>
                     </ul>
 
-                    <button className='menu-btn' onClick={toggleMenu}>
-                        <span
-                            className="material-symbols-outlined"
-                            style={{ fontSize: "1.8rem" }}
-                        >
-                            {openMenu ? "close" : "menu"}
-                        </span>
-
+                    <button
+                        className='menu-btn'
+                        onClick={toggleMenu}
+                        aria-label='Open menu'
+                        aria-expanded={openMenu}
+                    >
+                        <svg viewBox='0 0 24 24' width='26' height='26' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' aria-hidden='true'>
+                            <path d='M4 7h16M4 12h16M4 17h16' />
+                        </svg>
                     </button>
                 </div>
+                <span className='scroll-progress' ref={progressBar} aria-hidden='true' />
             </nav>
-            {isHireMeOpen && <HireMe onClose={toggleModal} />}
+            {isHireMeOpen && <HireMe onClose={() => setIsHireMeOpen(false)} />}
         </>
     )
 }

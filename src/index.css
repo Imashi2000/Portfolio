@@ -1,18 +1,177 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 * {
-  font-family: "Poppins", sans-serif;
   margin: 0;
   box-sizing: border-box;
 }
 
-body {
-  color: #fff;
-  background-color: #060417;
-}
-
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #060417;
+  overflow-wrap: break-word;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", "Poppins", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid #c9bcff;
+  outline-offset: 3px;
+}
+
+.section {
+  margin: 6rem 0;
+}
+
+.section-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #dd8cfa;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #ffffff 0%, #c9bcff 40%, #dd8cfa 70%, #7fd8ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-shift {
+  to {
+    background-position: 100% center;
+  }
+}
+
+.glass-card {
+  background: rgba(24, 18, 56, 0.62);
+  border: 1px solid rgba(169, 147, 254, 0.28);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-0.3rem);
+  border-color: rgba(201, 188, 255, 0.7);
+  box-shadow: 0 18px 45px rgba(98, 66, 214, 0.28);
+}
+
+.btn {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #7354e3 0%, #6242d6 100%);
+  box-shadow: 0 8px 28px rgba(98, 66, 214, 0.45);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(126, 97, 231, 0.65);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(169, 147, 254, 0.55);
+}
+
+.btn-outline:hover {
+  background: rgba(103, 81, 185, 0.35);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.tags li {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e4deff;
+  background: rgba(103, 81, 185, 0.3);
+  border: 1px solid rgba(169, 147, 254, 0.35);
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin: 4.5rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

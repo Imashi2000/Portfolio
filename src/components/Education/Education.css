@@ -1,0 +1,78 @@
+.education-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.education-grid .reveal {
+    display: flex;
+    min-width: 0;
+}
+
+.education-card {
+    width: 100%;
+    padding: 1.75rem;
+}
+
+.education-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.education-gpa {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.education-gpa strong {
+    font-family: "Space Grotesk", "Poppins", sans-serif;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #dd8cfa;
+}
+
+.education-gpa span {
+    font-size: 0.9rem;
+    color: #d0c5ff;
+}
+
+.education-school {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.education-meta {
+    font-size: 0.9rem;
+    color: #d0c5ff;
+    margin-top: 0.25rem;
+}
+
+.education-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.education-list li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0.6rem 0;
+    border-top: 1px solid rgba(169, 147, 254, 0.2);
+}
+
+.education-list span {
+    display: block;
+    font-size: 0.85rem;
+    color: #d0c5ff;
+}
+
+@media (max-width: 1024px) {
+    .education-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -18,12 +18,18 @@ form input,
 form textarea {
     flex: 1;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #fff;
-    background: #130f2a;
+    background: rgba(24, 18, 56, 0.72);
     border-radius: 0.6rem;
-    border: 1.5px solid #6751b9;
+    border: 1px solid rgba(169, 147, 254, 0.4);
     padding: 1rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #b6a9ee;
+    opacity: 1;
 }
 
 form button {
@@ -32,62 +38,27 @@ form button {
     color: #fff;
     border: 1.5px solid #6751b9;
     border-radius: 0.6rem;
-    background: linear-gradient(90deg, #a892fe 0%, #8064e8 100%);
+    background: linear-gradient(90deg, #7354e3 0%, #6242d6 100%);
+    min-height: 2.75rem;
     padding: 0.7rem;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-form button:hover {
+form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+form button:hover:not(:disabled) {
     color: #a892fe;
     background: transparent;
-}
-
-.snackbar {
-    visibility: visible;
-    min-width: 250px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 4px;
-    padding: 16px;
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    font-size: 1rem;
-    opacity: 0.9;
-    animation: fadeInOut 3s ease-in-out;
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100px);
-    }
-
-    10% {
-        opacity: 0.9;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    90% {
-        opacity: 0.9;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100px);
-    }
 }
 
 @media (max-width: 450px) {
     .name-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     form input,
@@ -96,9 +67,4 @@ form button:hover {
         border-radius: 0.3rem;
     }
 
-    form button {
-        font-size: 0.9rem;
-        padding: 0.7rem;
-        border-radius: 0.3rem;
-    }
 }

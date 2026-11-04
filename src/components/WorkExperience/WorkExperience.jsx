@@ -1,39 +1,45 @@
-import React from "react";
 import './WorkExperience.css';
+import Reveal from '../Reveal/Reveal';
+import { PROJECTS, WORK } from "../../utils/data";
 
 export const WorkExperience = () =>
 {
     return (
+        <section className="section" id="WORK">
+            <Reveal>
+                <p className="section-eyebrow">Experience</p>
+                <h2 className="section-title">Where I&apos;ve worked</h2>
+            </Reveal>
 
-        <section className="work-box" id="WORK">
-            <h5 className="work-title">Work Experience</h5>
-            <div className="work-container">
-                <img src="./assets/images/agrolink.png" alt="" />
+            <div className="timeline">
+                {WORK.map((job) => (
+                    <Reveal key={job.company} className="timeline-item">
+                        <span className="timeline-dot" aria-hidden="true" />
 
-                <ul className="work-content">
-                    <h5>Creative Software</h5>
-                    <h5>Software Engineer Intern</h5>
-                    <li className="work-items">
-                        <div>
-                            <h6>Mini Project</h6>
-                            <p>I primarily contributed by: developing the backend of the
-                                application using .NET Core, designed a relational database
-                                using MSSQL, dockerized the backend services by writing
-                                Dockerfiles and Docker Compose files and Helm charts, built
-                                and maintained Azure CI/CD pipelines.</p>
-                        </div>
-                    </li>
-                    <li className="work-items">
-                        <div>
-                            <h6>Agrolink Project</h6>
-                            <p>I primarily contributed by: developing the backend of the
-                                application using .NET Core, designed a relational database
-                                using MSSQL, dockerized the backend services by writing
-                                Dockerfiles and Docker Compose files and Helm charts, built
-                                and maintained Azure CI/CD pipelines.</p>
-                        </div>
-                    </li>
-                </ul>
+                        <article className="work-card glass-card">
+                            <div className="work-header">
+                                <div>
+                                    <h3>{job.role}</h3>
+                                    <p className="work-company">{job.company}</p>
+                                </div>
+                                <p className="work-meta">{job.period}<br />{job.location}</p>
+                            </div>
+
+                            <ul className="work-highlights">
+                                {job.highlights.map((item) => (
+                                    <li key={item}>{item}</li>
+                                ))}
+                            </ul>
+
+                            <h4>Projects here</h4>
+                            <ul className="tags">
+                                {PROJECTS.filter((project) => project.source === job.company).map((project) => (
+                                    <li key={project.title}>{project.title}</li>
+                                ))}
+                            </ul>
+                        </article>
+                    </Reveal>
+                ))}
             </div>
         </section>
     )

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
@@ -10,31 +10,33 @@ const ContactForm = () =>
     const [open, setOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+    const [sending, setSending] = useState(false);
 
     const sendEmail = (e) =>
     {
         e.preventDefault();
+        setSending(true);
 
         emailjs.sendForm(
-            'service_xkuidqs',     //EmailJS service ID
+            'service_ce46rcv',     //EmailJS service ID
             'template_3k5uvjl',     //EmailJS template ID
             form.current,
             '48jEYeqIIblUR1T6l'       //EmailJS public key
         ).then(
-            (result) =>
+            () =>
             {
                 setSnackbarSeverity('success');
                 setSnackbarMessage('Message sent successfully!');
                 setOpen(true);
                 form.current.reset(); // Optionally clear the form
             },
-            (error) =>
+            () =>
             {
                 setSnackbarSeverity('error');
                 setSnackbarMessage('Failed to send message. Please try again.');
                 setOpen(true);
             }
-        );
+        ).finally(() => setSending(false));
     };
 
     const handleClose = (event, reason) =>
@@ -47,14 +49,14 @@ const ContactForm = () =>
         <div className="contact-form-content">
             <form ref={form} onSubmit={sendEmail}>
                 <div className="name-container">
-                    <input type="text" name="user_fname" placeholder="First Name" required />
-                    <input type="text" name="user_lname" placeholder="Last Name" required />
+                    <input type="text" name="user_fname" placeholder="First Name" aria-label="First name" autoComplete="given-name" required />
+                    <input type="text" name="user_lname" placeholder="Last Name" aria-label="Last name" autoComplete="family-name" required />
                 </div>
 
-                <input type="email" name="user_email" placeholder="Email" required />
-                <textarea name="message" placeholder="Message" rows={3} required />
+                <input type="email" name="user_email" placeholder="Email" aria-label="Email" autoComplete="email" required />
+                <textarea name="message" placeholder="Message" aria-label="Message" rows={4} required />
 
-                <button type="submit">SEND</button>
+                <button type="submit" disabled={sending}>{sending ? 'SENDING...' : 'SEND'}</button>
             </form>
 
             <Snackbar

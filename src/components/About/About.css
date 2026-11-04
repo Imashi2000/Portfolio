@@ -1,0 +1,52 @@
+.about-text {
+    max-width: 50rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e4deff;
+    margin-top: -1.25rem;
+}
+
+.about-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2.5rem;
+}
+
+.about-grid .reveal {
+    display: flex;
+}
+
+.about-card {
+    width: 100%;
+    padding: 1.75rem;
+}
+
+.about-number {
+    font-family: "Space Grotesk", "Poppins", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #dd8cfa;
+}
+
+.about-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.75rem;
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #e4deff;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+}

@@ -1,76 +1,58 @@
-#PROJECT {
-    padding-top: 100px;
-    margin-top: -40px;
-}
-
-.project-container {
-    margin: 4rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-container h5 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 3rem;
-}
-
-.project-content {
-    position: relative;
-    justify-content: center;
-}
-
-.arrow-left,
-.arrow-right {
-    width: 2.2rem;
-    height: 2.2rem;
+.project-filters {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: -1rem 0 2rem;
+}
+
+.project-filter {
+    min-height: 2.75rem;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    color: #6751b9;
-    border-radius: 0.65rem;
-    border: 1.5px solid #6751b9;
-    background: #130f2a;
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    cursor: pointer;
-    transform: translateY(-50%);
-}
-
-.arrow-left span,
-.arrow-right span {
-    font-size: 2rem;
+    gap: 0.5rem;
+    font-size: 0.95rem;
     font-weight: 500;
+    color: #e4deff;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(169, 147, 254, 0.4);
+    border-radius: 2rem;
+    padding: 0.4rem 1.1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-.arrow-left {
-    left: 0rem;
+.project-filter span {
+    font-size: 0.8rem;
+    color: #d0c5ff;
 }
 
-.arrow-right {
-    right: 0rem;
+.project-filter:hover {
+    border-color: #c9bcff;
 }
 
-@media (max-width: 1025px) {
-    .arrow-left {
-        left: 0rem;
-    }
-
-    .arrow-right {
-        right: 0rem;
-    }
+.project-filter.active {
+    color: #fff;
+    background: linear-gradient(90deg, #7354e3 0%, #6242d6 100%);
+    border-color: transparent;
 }
 
-@media (max-width: 768px) {
+.project-filter.active span {
+    color: #fff;
+}
 
-    .arrow-left {
-        left: -1rem;
-    }
+.project-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+}
 
-    .arrow-right {
-        right: -1rem;
-    }
+.project-grid .reveal {
+    display: flex;
+    min-width: 0;
+}
 
-   
+.project-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
 }

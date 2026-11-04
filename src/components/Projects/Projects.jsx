@@ -1,67 +1,63 @@
-import React, { useRef } from "react";
+import { useState } from "react";
 import './Projects.css';
 import ProjectCard from "./ProjectCard/ProjectCard";
-import { PROJECT } from "../../utils/data";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Reveal from "../Reveal/Reveal";
+import { PROJECTS, PROJECT_FILTERS } from "../../utils/data";
+
+const INITIAL_COUNT = 6;
+
+const matchesFilter = (project, filter) => filter === "all" || project.types.includes(filter);
 
 const Projects = () =>
 {
-    const sliderRef = useRef();
+    const [filter, setFilter] = useState("all");
+    const [showAll, setShowAll] = useState(false);
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    const matching = PROJECTS.filter((project) => matchesFilter(project, filter));
+    const visible = showAll ? matching : matching.slice(0, INITIAL_COUNT);
 
-    const sliderRight = () =>
+    const selectFilter = (id) =>
     {
-        sliderRef.current.slickNext();
-    };
-
-    const sliderLeft = () =>
-    {
-        sliderRef.current.slickPrev();
+        setFilter(id);
+        setShowAll(false);
     };
 
     return (
-        <section className="project-container" id="PROJECT">
-            <h5>Projects</h5>
+        <section className="section" id="PROJECT">
+            <Reveal>
+                <p className="section-eyebrow">Projects</p>
+                <h2 className="section-title">Selected work</h2>
 
-            <div className="project-content">
-                <div className="arrow-right" onClick={sliderRight}>
-                    <span className="material-symbols-outlined">chevron_right</span>
-                </div>
-                <div className="arrow-left" onClick={sliderLeft}>
-                    <span className="material-symbols-outlined">chevron_left</span>
-                </div>
-                <Slider ref={sliderRef}{...settings}>
-                    {PROJECT.map((item) => (
-                        <ProjectCard key={item.title} details={item} />
+                <div className="project-filters" role="group" aria-label="Filter projects by type">
+                    {PROJECT_FILTERS.map((item) => (
+                        <button
+                            key={item.id}
+                            className={`project-filter ${filter === item.id ? "active" : ""}`}
+                            aria-pressed={filter === item.id}
+                            onClick={() => selectFilter(item.id)}
+                        >
+                            {item.label}
+                            <span>{PROJECTS.filter((project) => matchesFilter(project, item.id)).length}</span>
+                        </button>
                     ))}
-                </Slider>
+                </div>
+            </Reveal>
+
+            <div className="project-grid">
+                {visible.map((item, index) => (
+                    <Reveal key={item.title} delay={(index % 3) * 80}>
+                        <ProjectCard details={item} />
+                    </Reveal>
+                ))}
             </div>
+
+            {matching.length > INITIAL_COUNT && (
+                <div className="project-more">
+                    <button className="btn btn-outline" onClick={() => setShowAll(!showAll)}>
+                        {showAll ? "Show fewer" : `Show all ${matching.length} projects`}
+                    </button>
+                </div>
+            )}
         </section>
     )
 }

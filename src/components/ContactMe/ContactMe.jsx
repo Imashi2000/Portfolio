@@ -1,37 +1,47 @@
-import React from "react";
 import './ContactMe.css';
 import ContactInfoCard from "./ContactInfoCard/ContactInfoCard";
 import ContactForm from "./ContactForm/ContactForm";
+import Reveal from "../Reveal/Reveal";
+import { GitHubIcon, GmailIcon, LinkedInIcon } from "../SocialIcons/SocialIcons";
 
 const ContactMe = () =>
 {
     return (
-        <section className="contact-container" id="CONTACT">
-            <h5>Contact Me</h5>
+        <section className="section" id="CONTACT">
+            <Reveal>
+                <p className="section-eyebrow">Contact</p>
+                <h2 className="section-title">Let&apos;s work together</h2>
+                <p className="contact-intro">
+                    I&apos;m looking for my next software engineering role. If you have an opportunity
+                    or a project in mind, I&apos;d love to hear from you.
+                </p>
+            </Reveal>
 
-            <div className="contact-content">
-                <div style={{ flex: 1 }}>
+            <Reveal className="contact-content">
+                <div className="contact-column">
                     <ContactInfoCard
-                        iconUrl="./assets/images/outlook.png"
-                        url="imashi.samarawickrama@outlook.com"
-                        target_text="_blank"
+                        icon={<GmailIcon />}
+                        url="mailto:imashinethmini88@gmail.com"
+                        text="imashinethmini88@gmail.com"
                     />
                     <ContactInfoCard
-                        iconUrl="./assets/images/github.png"
+                        icon={<GitHubIcon />}
                         url="https://github.com/Imashi2000"
-                        target_text="_blank"
+                        text="github.com/Imashi2000"
+                        external
                     />
                     <ContactInfoCard
-                        iconUrl="./assets/images/linkedin.png"
+                        icon={<LinkedInIcon />}
                         url="https://www.linkedin.com/in/imashi-samarawickrama"
-                        target_text="_blank"
+                        text="linkedin.com/in/imashi-samarawickrama"
+                        external
                     />
                 </div>
 
-                <div style={{ flex: 1 }}>
+                <div className="contact-column">
                     <ContactForm />
                 </div>
-            </div>
+            </Reveal>
         </section>
     )
 }

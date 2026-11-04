@@ -1,0 +1,22 @@
+.reveal {
+    opacity: 0;
+    transform: translateY(1.75rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.from-above {
+    transform: translateY(-1.75rem);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+    .reveal,
+    .reveal.from-above {
+        opacity: 1;
+        transform: none;
+    }
+}

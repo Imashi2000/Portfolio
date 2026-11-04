@@ -1,43 +1,27 @@
-import React, { useState } from "react";
 import './Skills.css'
 import { SKILLS } from "../../utils/data.js";
 import SkillCard from "./SkillCard/SkillCard.jsx";
-import SkillInfoCard from "./SkillInfoCard/SkillInfoCard.jsx";
+import Reveal from "../Reveal/Reveal";
 
 const Skills = () =>
 {
-    const [selectedSkill, setSelectedSkill] = useState(SKILLS[0]);
-
-    const handleSelectSkill = (data) =>{
-        setSelectedSkill(data)
-    };
-
     return (
-        <section className="skills-container" id="SKILLS">
-            <h5> Technical Proficiency </h5>
+        <section className="section" id="SKILLS">
+            <Reveal>
+                <p className="section-eyebrow">Skills</p>
+                <h2 className="section-title">What I work with</h2>
+            </Reveal>
 
-            <div className="skills-content">
-                <div className="skills">
-                    {
-                        SKILLS.map((item) => (
-                            <SkillCard
-                                key={item.title}
-                                iconUrl={item.icon}
-                                title={item.title}
-                                isActive={selectedSkill.title === item.title}
-                                onClick={() => {
-                                    handleSelectSkill(item);
-                                }}
-                            />
-                        ))
-                    }
-                </div>
-                <div className="skills-info">
-                    <SkillInfoCard
-                    heading={selectedSkill.title}
-                    skills={selectedSkill.skills}
-                    />
-                </div>
+            <div className="skills">
+                {SKILLS.map((item, index) => (
+                    <Reveal key={item.title} delay={(index % 3) * 80}>
+                        <SkillCard
+                            iconUrl={item.icon}
+                            title={item.title}
+                            skills={item.skills}
+                        />
+                    </Reveal>
+                ))}
             </div>
         </section>
     )

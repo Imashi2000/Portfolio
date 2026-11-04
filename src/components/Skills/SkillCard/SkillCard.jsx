@@ -1,17 +1,22 @@
-import React from "react";
 import './SkillCard.css'
 
-const SkillCard = ({ title, iconUrl, isActive, onClick }) =>
+const SkillCard = ({ title, iconUrl, skills }) =>
 {
     return (
-        <div className={`skills-card ${isActive ? "active" : ""}`}
-            onClick={() => onClick()}
-        >
-            <div className="skill-icon">
-                <img src={iconUrl} alt={title} />
+        <article className="skills-card glass-card">
+            <div className="skills-card-header">
+                <div className="skill-icon">
+                    <img src={iconUrl} alt="" />
+                </div>
+                <h3>{title}</h3>
             </div>
-            <span>{title}</span>
-        </div>
+
+            <ul className="tags">
+                {skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                ))}
+            </ul>
+        </article>
     );
 };
 

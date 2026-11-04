@@ -1,35 +1,47 @@
-import React from "react";
 import './Footer.css'
+import { NAV_LINKS } from '../../utils/data';
+import SocialIcons from '../SocialIcons/SocialIcons';
 
 const Footer = () =>
 {
     return (
         <footer className="footer">
-            <div className="footer-container">
+            <div className="footer-glow" aria-hidden="true" />
 
-                <div className="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#PROFILE">Home</a></li>
-                        <li><a href="#SKILLS">Skills</a></li>
-                        <li><a href="#WORK">Work Experience</a></li>
-                        <li><a href="#PROJECT">Projects</a></li>
-                        <li><a href="#CONTACT">Contact Me</a></li>
-                    </ul>
+            <div className="footer-content">
+                <div className="footer-brand">
+                    <a className="footer-name" href="#PROFILE">Imashi Samarawickrama</a>
+                    <p>Software engineer building web systems, backend APIs and cross-platform mobile apps.</p>
+                    <SocialIcons />
                 </div>
 
-                <div className="footer-contact">
-                    <h3>Contact</h3>
+                <nav className="footer-nav" aria-label="Footer">
+                    <h2>Explore</h2>
                     <ul>
-                        <li>Email: imashi.samarawickrama@outlook.com</li>
-                        <li>Phone: +94 (70) 259 0879</li>
-                        <li>Location: Sri Lanka</li>
+                        {NAV_LINKS.map((link) => (
+                            <li key={link.id}><a href={`#${link.id}`}>{link.label}</a></li>
+                        ))}
                     </ul>
+                </nav>
+
+                <div className="footer-contact">
+                    <h2>Get in touch</h2>
+                    <a className="footer-email" href="mailto:imashinethmini88@gmail.com">imashinethmini88@gmail.com</a>
+                    <p className="footer-status">
+                        <span aria-hidden="true" />
+                        Open to new opportunities
+                    </p>
                 </div>
             </div>
 
             <div className="footer-bottom">
-                <p>© 2024 Imashi Samarawickrama. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Imashi Samarawickrama. All rights reserved.</p>
+                <a className="footer-top" href="#PROFILE">
+                    Back to top
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.200" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M12 19V5M6 11l6-6 6 6" />
+                    </svg>
+                </a>
             </div>
         </footer>
     )

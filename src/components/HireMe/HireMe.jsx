@@ -1,34 +1,52 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import './HireMe.css';
+import { RESUME_URL } from '../../utils/data';
 
 const HireMe = ({ onClose }) =>
 {
+    const closeBtn = useRef();
+
+    useEffect(() =>
+    {
+        closeBtn.current.focus();
+    }, []);
+
     return (
-        <div className="modal-overlay">
-            <div className="modal-content">
-                <button className="close-btn" onClick={onClose}>
-                    &times; {/* Close button (×) */}
+        <div className="modal-overlay" onClick={onClose}>
+            <div
+                className="modal-content"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="hire-me-title"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <button className="close-btn" ref={closeBtn} onClick={onClose} aria-label="Close">
+                    &times;
                 </button>
 
-                <section className="hire-me-section">
-                    <h2>Let's Work Together</h2>
-                    <p>
-                        Are you looking for a passionate and skilled software engineer to bring your project to life?
-                        With experience in full-stack development, CI/CD, Docker, and more, I'm ready to help you
-                        build scalable and innovative solutions. Let's collaborate and make something great!
-                    </p>
+                <h2 id="hire-me-title">Let&apos;s Work Together</h2>
+                <p>
+                    Looking for a software engineer for your next web system, backend or mobile app?
+                    I work across the whole product, from requirements and interface through APIs,
+                    testing and deployment.
+                </p>
 
-                    <ul className="skills-summary">
-                        <li>Full-Stack Development</li>
-                        <li>Backend: .NET Core, Node.js, MSSQL</li>
-                        <li>Frontend: React, Flutter</li>
-                        <li>CI/CD with Docker, Kubernetes, Azure Pipelines</li>
-                    </ul>
+                <ul className="skills-summary">
+                    <li>Backend: PHP, CodeIgniter, ASP.NET Core, Node.js</li>
+                    <li>Web &amp; Mobile: React, Flutter, Dart</li>
+                    <li>Databases: MySQL, MSSQL, MongoDB, Firebase</li>
+                    <li>DevOps: Docker, Kubernetes, Helm, Azure DevOps</li>
+                </ul>
 
-                    <a href="./assets/images/Imashi Samarawickrama-CV.pdf" className="resume-btn" download>
-                        Download Resume
+                <a href="#CONTACT" className="btn btn-primary resume-btn" onClick={onClose}>
+                    Get in Touch
+                </a>
+
+                {RESUME_URL && (
+                    <a href={RESUME_URL} className="btn btn-outline resume-link" download>
+                        Download CV
                     </a>
-                </section>
+                )}
             </div>
         </div>
     );
